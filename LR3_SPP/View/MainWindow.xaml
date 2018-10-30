@@ -13,9 +13,7 @@
                <ColumnDefinition/>
                <ColumnDefinition/>
           </Grid.ColumnDefinitions>
-          <Button Content="Open file" ></Button>
-
-          <StackPanel >
+          <StackPanel Orientation="Horizontal">
                <TreeView>
                     <TreeView.ItemTemplate>
                          <HierarchicalDataTemplate>
@@ -27,5 +25,6 @@
                     </TreeView.ItemTemplate>
                </TreeView>
           </StackPanel>
+          <Button Content="Open file" MaxWidth="100" MaxHeight="30" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Bottom"></Button>
      </Grid>
 </Window>
