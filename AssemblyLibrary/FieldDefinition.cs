@@ -9,12 +9,25 @@ namespace AssemblyLibrary
 {
      public class FieldDefinition
      {
-          public string fieldName;
-          public string fieldDefinition;
+          private string fieldName;
+          private string fieldDefinition;
+
+          public string FieldName
+          {
+               get
+               {
+                    return fieldDefinition;
+               }
+
+               set
+               {
+                    fieldName = value;
+               }
+          }
 
           public FieldDefinition(FieldInfo fieldInfo)
           {
-               this.fieldName = fieldInfo.Name;
+               this.FieldName = fieldInfo.Name;
                this.fieldDefinition = TypeModifier.GetTypeDefinition(fieldInfo.GetType());
 
                fieldDefinition += (fieldInfo.FieldType.IsGenericType ?
@@ -34,5 +47,6 @@ namespace AssemblyLibrary
 
                return result;
           }
+
      }
 }

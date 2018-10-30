@@ -9,11 +9,24 @@ namespace AssemblyLibrary
 {
      public class MethodDefinition
      {
-          public string methodDefinition;
+          private string methodName;
 
           public MethodDefinition(MethodInfo methodInfo)
           {
-               methodDefinition = TypeModifier.GetTypeDefinition(methodInfo.GetType()) + methodInfo.ToString();
+               MethodName = TypeModifier.GetTypeDefinition(methodInfo.GetType()) + methodInfo.ToString();
+          }
+
+          public string MethodName
+          {
+               get
+               {
+                    return methodName;
+               }
+
+               set
+               {
+                    methodName = value;
+               }
           }
      }
 }

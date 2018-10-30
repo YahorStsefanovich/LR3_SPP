@@ -32,8 +32,6 @@ namespace LR3_SPP
                loader = new DllLoader();
           }
 
-
-
           public event PropertyChangedEventHandler PropertyChanged;
 
           public void OnPropertyChanged([CallerMemberName]string prop = "")
@@ -41,6 +39,8 @@ namespace LR3_SPP
                //? == Nullable<T>
                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
           }
+
+          public NamespaceDefinition a = new NamespaceDefinition("AssemblyLibrary");
 
           public RelayCommand OpenFileComand
           {

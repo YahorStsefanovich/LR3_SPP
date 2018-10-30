@@ -23,18 +23,18 @@ namespace AssemblyLibrary
 
                foreach (var type in assembly.DefinedTypes)
                {
-                    if ((result.NamespaceDefinitions.Find(x => x.Name == type.Namespace) == null)
+                    if ((result.Namespaces.Find(x => x.NamespaceName == type.Namespace) == null)
                         && (type.Namespace != null))
                     {
-                         result.NamespaceDefinitions.Add(new NamespaceDefinition(type.Namespace));
+                         result.Namespaces.Add(new NamespaceDefinition(type.Namespace));
                     }
                }
 
-               foreach (var nameSpace in result.NamespaceDefinitions)
+               foreach (var nameSpace in result.Namespaces)
                {
-                    foreach (var type in assembly.DefinedTypes.Where(x => x.Namespace == nameSpace.Name))
+                    foreach (var type in assembly.DefinedTypes.Where(x => x.Namespace == nameSpace.NamespaceName))
                     {
-                         nameSpace.TypeDefinitionInfo.Add(new TypeDefinition(type));
+                         nameSpace.Types.Add(new TypeDefinition(type));
                     }
                }
 

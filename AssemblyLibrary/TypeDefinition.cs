@@ -9,8 +9,7 @@ namespace AssemblyLibrary
 {
      public class TypeDefinition
      {
-          public string Name { set; get; }
-          public string TypeDefinitionInfo { set; get; }
+          public string TypeName { set; get; }
 
           public List<PropertyDefinition> Propierties
           {
@@ -57,7 +56,7 @@ namespace AssemblyLibrary
 
           public TypeDefinition(TypeInfo type)
           {
-               Name = String.Format("{0} {1}", TypeModifier.GetTypeDefinition(type), type.Name);
+               TypeName = String.Format("{0} {1}", TypeModifier.GetTypeDefinition(type), type.Name);
                Fields = GetFields(type);
                Propierties = GetPropierties(type);
                Methods = GetMethods(type);              

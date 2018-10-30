@@ -9,13 +9,24 @@ namespace AssemblyLibrary
 {
      public class PropertyDefinition
      {
-          public string propertyName;
-          public string ptopertyType;
+          private string propertyName;
 
           public PropertyDefinition(PropertyInfo propertyInfo)
           {
-               this.propertyName = propertyInfo.Name;
-               this.ptopertyType = propertyInfo.PropertyType.Name;
+               this.PropertyName = String.Format("{0} {1}", propertyInfo.PropertyType.Name, propertyInfo.Name);
+          }
+
+          public string PropertyName
+          {
+               get
+               {
+                    return propertyName;
+               }
+
+               set
+               {
+                    propertyName = value;
+               }
           }
      }
 }

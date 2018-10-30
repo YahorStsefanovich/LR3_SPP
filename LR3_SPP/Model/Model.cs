@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace LR3_SPP
+namespace LR3_SPP.Model
 {
      class Model
      {

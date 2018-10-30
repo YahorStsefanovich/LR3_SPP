@@ -8,11 +8,11 @@ namespace AssemblyLibrary
 {
      public class DllDefinition
      {
-          public List<NamespaceDefinition> NamespaceDefinitions { set; get; }
+          public List<NamespaceDefinition> Namespaces{ set; get; }
 
           public DllDefinition()
           {
-               NamespaceDefinitions = new List<NamespaceDefinition>();
+               Namespaces = new List<NamespaceDefinition>();
           }
      }
 }
