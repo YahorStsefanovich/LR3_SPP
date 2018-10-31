@@ -13,7 +13,20 @@ namespace AssemblyLibrary
 
           public MethodDefinition(MethodInfo methodInfo)
           {
-               MethodName = TypeModifier.GetTypeDefinition(methodInfo.GetType()) + methodInfo.ToString();
+               ParameterInfo[] pi = methodInfo.GetParameters();
+               string pars = "";
+               foreach (ParameterInfo par in pi)
+               {
+                    pars += String.Format("{0} {1},", par.ParameterType.Name, par.Name);
+               }
+               if (pars.Length > 0)
+               pars = pars.Substring(0, pars.Length - 1);
+
+               methodName = String.Format("{0} {1} {2} ({3})", 
+                    TypeModifier.GetAccessModifier(methodInfo.GetType()),
+                    methodInfo.ReturnType.Name,
+                    methodInfo.Name,
+                    pars);             
           }
 
           public string MethodName

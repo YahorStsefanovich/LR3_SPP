@@ -13,6 +13,11 @@ namespace LR3_SPP
           private DllLoader loader;
           private RelayCommand openFileComand;
 
+          public ViewModel()
+          {
+               loader = new DllLoader();
+          }
+
           public DllDefinition Result
           {
                get
@@ -27,20 +32,13 @@ namespace LR3_SPP
                }
           }
 
-          public ViewModel()
-          {
-               loader = new DllLoader();
-          }
-
           public event PropertyChangedEventHandler PropertyChanged;
 
-          public void OnPropertyChanged([CallerMemberName]string prop = "")
+          protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
           {
-               //? == Nullable<T>
-               PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+               if (PropertyChanged != null)
+                    PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
           }
-
-          public NamespaceDefinition a = new NamespaceDefinition("AssemblyLibrary");
 
           public RelayCommand OpenFileComand
           {

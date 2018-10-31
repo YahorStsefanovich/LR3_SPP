@@ -16,7 +16,7 @@
           <Button Content="Open file" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Command="{Binding OpenFileComand}"/>
 
           <StackPanel Grid.Row="1" DataContext="{Binding Result}" Margin="10" Orientation="Horizontal" HorizontalAlignment="Stretch">
-               <TreeView x:Name="MainTreeView" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" MinWidth="400"
+               <TreeView x:Name="MainTreeView" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" MinWidth="600"
                       ItemsSource="{Binding Namespaces}">
 
                     <TreeView.ItemTemplate>
@@ -24,26 +24,26 @@
                               <TextBlock Text="{Binding NamespaceName}" />
                               <HierarchicalDataTemplate.ItemTemplate>
                                    <DataTemplate>
-                                        <StackPanel MinWidth="320">
+                                        <StackPanel MinWidth="320" Margin="10 0 0 0">
                                              <Label Content="{Binding Path=TypeName}" />
-                                             <TextBlock Text="Fields" />
-                                             <ListBox ItemsSource="{Binding Fields}">
+                                             <TextBlock Text="Fields"  Margin="20 0 0 0"/>
+                                             <ListBox ItemsSource="{Binding Fields}" Margin="30 0 0 0">
                                                   <ListBox.ItemTemplate>
                                                        <DataTemplate>
                                                             <TextBlock Text="{Binding FieldName}"/>
                                                        </DataTemplate>
                                                   </ListBox.ItemTemplate>
                                              </ListBox>
-                                             <TextBlock Text="Propierties"/>
-                                             <ListBox ItemsSource="{Binding Propierties}">
+                                             <TextBlock Text="Propierties" Margin="20 0 0 0"/>
+                                             <ListBox ItemsSource="{Binding Propierties}" Margin="30 0 0 0">
                                                   <ListBox.ItemTemplate>
                                                        <DataTemplate>
                                                             <TextBlock Text="{Binding PropertyName}"/>
                                                        </DataTemplate>
                                                   </ListBox.ItemTemplate>
                                              </ListBox>
-                                             <TextBlock Text="Methods"/>
-                                             <ListBox ItemsSource="{Binding Methods}">
+                                             <TextBlock Text="Methods" Margin="20 0 0 0"/>
+                                             <ListBox ItemsSource="{Binding Methods}" Margin="30 0 0 0">
                                                   <ListBox.ItemTemplate>
                                                        <DataTemplate>
                                                             <TextBlock Text="{Binding MethodName}"/>

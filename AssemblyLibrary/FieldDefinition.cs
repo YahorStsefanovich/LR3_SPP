@@ -28,11 +28,15 @@ namespace AssemblyLibrary
           public FieldDefinition(FieldInfo fieldInfo)
           {
                this.FieldName = fieldInfo.Name;
-               this.fieldDefinition = TypeModifier.GetTypeDefinition(fieldInfo.GetType());
+               this.fieldDefinition = String.Format("{0} {1} {2}", 
+                    TypeModifier.GetAccessModifier(fieldInfo.GetType()),
+                    fieldInfo.ReflectedType.Name,
+                    fieldInfo.Name);
 
-               fieldDefinition += (fieldInfo.FieldType.IsGenericType ?
-                    String.Format("{0}<{1}>", fieldInfo.FieldType.Name, GetGenericType(fieldInfo.FieldType.GenericTypeArguments)) :
-                    fieldInfo.FieldType.Name);
+
+               //this.fieldDefinition += (fieldInfo.FieldType.IsGenericType ?
+               //     String.Format("{0}<{1}>", fieldInfo.ReflectedType.Name, GetGenericType(fieldInfo.FieldType.GenericTypeArguments)) :
+               //     fieldInfo.ReflectedType.Name);
           }
 
           private string GetGenericType(Type[] type)
@@ -42,7 +46,7 @@ namespace AssemblyLibrary
                {
                     result += (type.GetType().IsGenericType ?
                          String.Format("<{0}>", GetGenericType(genericType.GetType().GenericTypeArguments)) :
-                         String.Format("<{0}> ", genericType.Name));
+                         String.Format("{0} ", genericType.Name));
                }
 
                return result;

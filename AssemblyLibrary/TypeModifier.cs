@@ -46,7 +46,7 @@ namespace AssemblyLibrary
                return result;
           }
 
-          private static string GetTypeAtributes(Type type)
+          public static string GetTypeAtributes(Type type)
           {
                string result = "";
                TypeAttributes attr = type.Attributes;
