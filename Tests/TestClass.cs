@@ -5,10 +5,23 @@ using System.Linq;
 
 namespace Tests
 {
+     namespace Namespace1
+     {
+          public class Class1
+          {
+               public string Field1;
+               public int Field2;
+          }
+
+          interface I1
+          {
+
+          } 
+     }
+
      [TestClass]
      public class TestClass
      {
-
           private DllDefinition result;
           private Type classType;
           private string path = "./Tests.dll";
@@ -21,6 +34,8 @@ namespace Tests
                classType = typeof(TestClass);
           }
 
+
+
           [TestMethod]
           public void TestNamespaceExists()
           {
@@ -30,13 +45,37 @@ namespace Tests
           [TestMethod]
           public void TestNamespacesCount()
           {
-               Assert.IsTrue(result.Namespaces.Count > 0);
+               Assert.AreEqual(result.Namespaces.Count, 2);
           }
 
           [TestMethod]
           public void TestNamespaceName()
           {
                Assert.AreEqual(result.Namespaces[0].NamespaceName, nameof(Tests));
+          }
+
+          [TestMethod]
+          public void TestInterfaceExists()
+          {
+               Boolean actual = false;
+               foreach (TypeDefinition td in result.Namespaces[1].Types)
+               {
+                    if (td.TypeName.Contains("interface"))
+                         actual = true;
+               }
+               Assert.IsTrue(actual);
+          }
+
+          [TestMethod]
+          public void TestClassExists()
+          {
+               Boolean actual = false;
+               foreach (TypeDefinition td in result.Namespaces[1].Types)
+               {
+                    if (td.TypeName.Contains("class"))
+                         actual = true;
+               }
+               Assert.IsTrue(actual);
           }
 
           [TestMethod]
@@ -73,3 +112,4 @@ namespace Tests
           }
      }
 }
+

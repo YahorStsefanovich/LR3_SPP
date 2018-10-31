@@ -58,10 +58,6 @@
       <Project>{b69c0934-c9e6-4965-9fbc-175c2dca65ea}</Project>
       <Name>AssemblyLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LR3_SPP\LR3_SPP.csproj">
-      <Project>{48290052-e306-4a0a-a1db-9243f7ad74bd}</Project>
-      <Name>LR3_SPP</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

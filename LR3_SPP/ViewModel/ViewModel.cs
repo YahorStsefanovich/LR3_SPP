@@ -28,7 +28,7 @@ namespace LR3_SPP
                set
                {
                     result = value;
-                    OnPropertyChanged();
+                    OnPropertyChanged("Result");
                }
           }
 
@@ -36,8 +36,7 @@ namespace LR3_SPP
 
           protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
           {
-               if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+               PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
           }
 
           public RelayCommand OpenFileComand

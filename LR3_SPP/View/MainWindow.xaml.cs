@@ -23,9 +23,7 @@ namespace LR3_SPP
           public MainWindow()
           {
                InitializeComponent();
-               DataContext = new ViewModel();
-               var a = new ViewModel();
-              
+               DataContext = new ViewModel();             
           }
 
 

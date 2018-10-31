@@ -30,7 +30,7 @@ namespace AssemblyLibrary
                this.FieldName = fieldInfo.Name;
                this.fieldDefinition = String.Format("{0} {1} {2}", 
                     TypeModifier.GetAccessModifier(fieldInfo.GetType()),
-                    fieldInfo.ReflectedType.Name,
+                    fieldInfo.FieldType.Name,
                     fieldInfo.Name);
 
 

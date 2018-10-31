@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:LR3_SPP"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-     
-     <Grid>
+     <Grid >
           <Grid.RowDefinitions>
                <RowDefinition MaxHeight="40"/>
                <RowDefinition/>
@@ -15,8 +14,8 @@
           
           <Button Content="Open file" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Command="{Binding OpenFileComand}"/>
 
-          <StackPanel Grid.Row="1" DataContext="{Binding Result}" Margin="10" Orientation="Horizontal" HorizontalAlignment="Stretch">
-               <TreeView x:Name="MainTreeView" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" MinWidth="600"
+          <StackPanel  Grid.Row="1" DataContext="{Binding Result}" Margin="10" Orientation="Horizontal" HorizontalAlignment="Stretch" >
+               <TreeView  x:Name="MainTreeView" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" MinWidth="600"
                       ItemsSource="{Binding Namespaces}">
 
                     <TreeView.ItemTemplate>
